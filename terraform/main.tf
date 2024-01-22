@@ -15,7 +15,7 @@ terraform {
 
 provider "aws" {
   # Configuration option
-  region = us-east-1
+  region = "us-east-1"
 }
 
 data "aws_ami" "latest_amazon_linux_image" {
