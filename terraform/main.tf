@@ -18,7 +18,7 @@ provider "aws" {
   region = us-east-1
 }
 
-data "aws_ami" "latest-amazon-linux-image" {
+data "aws_ami" "latest_amazon_linux_image" {
   most_recent = true
   owners = ["amazon"]
   filter {
@@ -32,8 +32,8 @@ data "aws_ami" "latest-amazon-linux-image" {
 }
 
 
-resource "aws_instance" "app-server-1" {
-  ami = data.aws_ami.latest-amazon-linux-image
+resource "aws_instance" "app_server_1" {
+  ami = data.aws_ami.latest_amazon_linux_image
   instance_type = "t2.micro"
 
   subnet_id = "subnet-0aed09be51c196cdc"
@@ -44,12 +44,12 @@ resource "aws_instance" "app-server-1" {
   key_name = "sample-nodejs-app-key"
 
   tags = {
-    "Name" = "prod-app-server-1"
+    "Name" = "prod-app_server_1"
   }
 }
 
-resource "aws_instance" "app-server-2" {
-  ami = data.aws_ami.latest-amazon-linux-image
+resource "aws_instance" "app_server_2" {
+  ami = data.aws_ami.latest_amazon_linux_image
   instance_type = "t2.micro"
 
   subnet_id = "subnet-00569cd89b72a9b7d"
@@ -60,6 +60,6 @@ resource "aws_instance" "app-server-2" {
   key_name = "sample-nodejs-app-key"
   
   tags = {
-    "Name" = "prod-app-server-2"
+    "Name" = "prod-app_server_2"
   }
 }
