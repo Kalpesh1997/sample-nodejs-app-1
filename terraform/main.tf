@@ -33,7 +33,7 @@ data "aws_ami" "latest_amazon_linux_image" {
 
 
 resource "aws_instance" "app_server_1" {
-  ami = data.aws_ami.latest_amazon_linux_image
+  ami = data.aws_ami.latest_amazon_linux_image.id
   instance_type = "t2.micro"
 
   subnet_id = "subnet-0aed09be51c196cdc"
@@ -49,7 +49,7 @@ resource "aws_instance" "app_server_1" {
 }
 
 resource "aws_instance" "app_server_2" {
-  ami = data.aws_ami.latest_amazon_linux_image
+  ami = data.aws_ami.latest_amazon_linux_image.id
   instance_type = "t2.micro"
 
   subnet_id = "subnet-00569cd89b72a9b7d"
