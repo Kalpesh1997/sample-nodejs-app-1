@@ -31,35 +31,38 @@ data "aws_ami" "latest-amazon-linux-image" {
   }
 }
 
-
-resource "aws_instance" "app-server-1" {
-  ami = data.aws_ami.latest-amazon-linux-image
-  instance_type = "t2.micro"
-
-  subnet_id = "subnet-0aed09be51c196cdc"
-  vpc_security_group_ids = [ "sg-0b8a7d86475c8bcbd" ]
-  availability_zone = "us-east-1a"
-
-  associate_public_ip_address = true
-  key_name = "sample-nodejs-app-key"
-
-  tags = {
-    "Name" = "prod-app-server-1"
-  }
+output "ami_name" {
+  value = data.aws_ami.latest-amazon-linux-image
 }
 
-resource "aws_instance" "app-server-2" {
-  ami = data.aws_ami.latest-amazon-linux-image
-  instance_type = "t2.micro"
+# resource "aws_instance" "app-server-1" {
+#   ami = data.aws_ami.latest-amazon-linux-image
+#   instance_type = "t2.micro"
 
-  subnet_id = "subnet-00569cd89b72a9b7d"
-  vpc_security_group_ids = [ "sg-0b8a7d86475c8bcbd" ]
-  availability_zone = "us-east-1b"
+#   subnet_id = "subnet-0aed09be51c196cdc"
+#   vpc_security_group_ids = [ "sg-0b8a7d86475c8bcbd" ]
+#   availability_zone = "us-east-1a"
 
-  associate_public_ip_address = true
-  key_name = "sample-nodejs-app-key"
+#   associate_public_ip_address = true
+#   key_name = "sample-nodejs-app-key"
+
+#   tags = {
+#     "Name" = "prod-app-server-1"
+#   }
+# }
+
+# resource "aws_instance" "app-server-2" {
+#   ami = data.aws_ami.latest-amazon-linux-image
+#   instance_type = "t2.micro"
+
+#   subnet_id = "subnet-00569cd89b72a9b7d"
+#   vpc_security_group_ids = [ "sg-0b8a7d86475c8bcbd" ]
+#   availability_zone = "us-east-1b"
+
+#   associate_public_ip_address = true
+#   key_name = "sample-nodejs-app-key"
   
-  tags = {
-    "Name" = "prod-app-server-2"
-  }
-}
+#   tags = {
+#     "Name" = "prod-app-server-2"
+#   }
+# }
