@@ -45,6 +45,18 @@
   become: yes
   become_user: ec2-user
   tasks:
+    - name: Get ECR token
+      shell: "aws ecr get-login-password --region us-east-1"
+      register: ecr_token
+
+    - name: Log into ECR registry
+      docker_login:
+        registry_url: "246167819468.dkr.ecr.us-east-1.amazonaws.com"
+        debug: yes
+        username: "AWS"
+        password: "{{ ecr_token.stdout }}"
+        reauthorize: yes
+
     - name: Ensure container is running
       vars:
         ansible_python_interpreter: /usr/bin/python
