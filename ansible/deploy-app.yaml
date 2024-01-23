@@ -44,7 +44,7 @@
   docker_container:
     name: sample-nodejs-app-1
     state: started
-    image: "246167819468.dkr.ecr.us-east-1.amazonaws.com/sample-nodejs-app-1:3.0"
+    image: "246167819468.dkr.ecr.us-east-1.amazonaws.com/sample-nodejs-app-1:4.0"
     pull: true
     ports:
       - "3000:3000"
