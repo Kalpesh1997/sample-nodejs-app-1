@@ -45,7 +45,9 @@
   become: yes
   become_user: ec2-user
   tasks:
-    - name: Ensure container is runnind
+    - name: Ensure container is running
+      vars:
+        ansible_python_interpreter: /usr/bin/python
       docker_container:
         name: sample-nodejs-app-1
         state: started
