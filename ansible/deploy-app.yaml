@@ -41,6 +41,9 @@
       meta: reset_connection
 
 - name: Ensure a container is running
+  hosts: aws_ec2
+  become: yes
+  become_user: ec2-user
   docker_container:
     name: sample-nodejs-app-1
     state: started

@@ -40,7 +40,7 @@ pipeline {
         stage("Deploy application") {
             steps {
                 script {
-                    dir('aansible') {
+                    dir('ansible') {
                         sh "ansible-playbook deploy-app.yaml"
                     }
                 }
