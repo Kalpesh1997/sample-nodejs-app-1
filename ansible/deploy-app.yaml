@@ -40,14 +40,16 @@
     - name: Reconnect to server session
       meta: reset_connection
 
-- name: Ensure a container is running
+- name: Start container
   hosts: aws_ec2
   become: yes
   become_user: ec2-user
-  docker_container:
-    name: sample-nodejs-app-1
-    state: started
-    image: "246167819468.dkr.ecr.us-east-1.amazonaws.com/sample-nodejs-app-1:4.0"
-    pull: true
-    ports:
-      - "3000:3000"
+  tasks:
+    - name: Ensure container is runnind
+      docker_container:
+        name: sample-nodejs-app-1
+        state: started
+        image: "246167819468.dkr.ecr.us-east-1.amazonaws.com/sample-nodejs-app-1:4.0"
+        pull: true
+        ports:
+          - "3000:3000"
