@@ -1,3 +1,3 @@
 [aws_ec2]
-ec2-3-89-223-137.compute-1.amazonaws.com ansible_user=ec2-user ansible_ssh_private_key_file=/sample-nodejs-app-key.pem
-ec2-54-162-201-94.compute-1.amazonaws.com ansible_user=ec2-user ansible_ssh_private_key_file=/sample-nodejs-app-key.pem
+ip-134-0-6-142.ec2.internal ansible_user=ec2-user
+ip-134-0-23-123.ec2.internal ansible_user=ec2-user
