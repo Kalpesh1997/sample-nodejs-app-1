@@ -27,5 +27,14 @@ pipeline {
                 }
             }
         }
+        stage("Deploy application") {
+            steps {
+                script {
+                    dir('aansible') {
+                        sh "ansible-playbook deploy-app.yaml"
+                    }
+                }
+            }
+        }
     }
 }
