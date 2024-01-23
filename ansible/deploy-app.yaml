@@ -46,6 +46,8 @@
   become_user: ec2-user
   tasks:
     - name: Log into ECR registry
+      vars:
+        ansible_python_interpreter: /usr/bin/python
       docker_login:
         registry_url: "246167819468.dkr.ecr.us-east-1.amazonaws.com"
         debug: yes
