@@ -5,7 +5,7 @@ regions:
   - us-east-1
 
 compose:
-  ansible_host: private_ip_address
+  ansible_host: private_dns_name
 
 filters:
   tag:Name: prod-app_server_*
