@@ -62,3 +62,19 @@ resource "aws_instance" "app_server_2" {
     "Name" = "prod-app_server_2"
   }
 }
+
+resource "aws_instance" "app_server_3" {
+  ami = data.aws_ami.latest_amazon_linux_image.id
+  instance_type = "t2.micro"
+
+  subnet_id = "subnet-00569cd89b72a9b7d"
+  vpc_security_group_ids = [ "sg-0b8a7d86475c8bcbd" ]
+  availability_zone = "us-east-1b"
+
+  associate_public_ip_address = true
+  key_name = "sample-nodejs-app-key"
+  
+  tags = {
+    "Name" = "prod-app_server_3"
+  }
+}
